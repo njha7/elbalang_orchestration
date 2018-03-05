@@ -1,23 +1,29 @@
 # elbalang_orchestration
 Experiment data processing orchestration
 
+This is a RESTful API to handle the processing of logs from an Elba experiment.
+
 ## Prerequisite Setup
 
+## API Endpoints
 
-## Initializing RabbitMQ
+### GET
 
-## Populating Queue
-```scripts/enque.py``` Enques files to be processed into target queue.
-Arg | Mandatory | Purpose
---- | --- | ---
---root | Y | Root directory of files to enque
---regex | Y | Regex pattern to all files enqued must contain
---uri | Y | URI of the queue
---port | Y | Listening port of the queue
---user | Y | Username to authenticate as
---password | Y | Password to authenticate with
+### POST
 
-enque.py walks the target directory and subdirectories and enques any files that contain a match for the regex arg into target queue.
+#### Process Log
 
-## Batch Processing
-WIP
+##### Endpoint
+```
+/process
+```
+
+##### Parameters
+
+
+| Param | Description |
+| ------| ----------- |
+|  key  | Authentication key |
+|  log  | File to process |
+
+##### Returns
