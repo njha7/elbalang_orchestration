@@ -1,3 +1,4 @@
 scripts/test-dir
 infrastructure/rabbitmq/.env
 infrastructure/flask/__pycache__
+infrastructure/flask/docker-commands.txt
