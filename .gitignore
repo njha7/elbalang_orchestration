@@ -1,4 +1,7 @@
 scripts/test-dir
+scripts/neel_paths
+scripts/neel_samples
 infrastructure/rabbitmq/.env
 infrastructure/flask/__pycache__
 infrastructure/flask/docker-commands.txt
+infrastructure/flask/src/elbalang

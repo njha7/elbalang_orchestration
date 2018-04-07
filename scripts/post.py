@@ -20,5 +20,6 @@ logFiles = re.compile(args.regex)
 for root, dirs, files in os.walk(args.root):
   for f in files:
     if logFiles.search(f) != None:
-      r = requests.post(args.uri + ':' + args.port + '/process', data = open(os.path.join(root,f), 'rb'))
+      payload = { 'name': f, 'log': open(os.path.join(root,f), 'rb') }
+      r = requests.post(args.uri + ':' + args.port + '/process', data=payload)
       print(r.text)
