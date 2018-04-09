@@ -5,6 +5,7 @@ import io
 import collections as c
 import itertools as it
 import elbalang.elbalang as interpret
+# from .elbalang import elbalang
 import time
 
 def get_data_as_list(file_ptr, delim=None):
@@ -24,7 +25,8 @@ def get_data_as_list(file_ptr, delim=None):
 def _analyze_experiment(f):
     start = time.time()
     row_list = get_data_as_list(f)
-    analyze_result = interpret.elbalang_run(row_list)
+    analyze_result = interpret.elbalang.elbalang_run(row_list)
+    # analyze_result = interpret.elbalang_run(row_list)
     end = time.time()
     analyze_result.append('time')
     analyze_result.append(round(end-start,2))
@@ -94,10 +96,10 @@ def analyze_one_file(file_path):
         input
     '''
     try:
-
+        
         analyze_result = _proc_file(file_path)
     except Exception as e:
-        print('Skipping file', file_path)
+        print(str(e), file_path)
         return None
     else:
         result = []

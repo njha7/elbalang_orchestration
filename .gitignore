@@ -1,7 +1,10 @@
 scripts/test-dir
 scripts/neel_paths
 scripts/neel_samples
+scripts/r&d/env
 infrastructure/rabbitmq/.env
-infrastructure/flask/__pycache__
+infrastructure/flask/src/__pycache__
+infrastructure/flask/src/env
 infrastructure/flask/docker-commands.txt
 infrastructure/flask/src/elbalang
+infrastructure/flask/src/ElbaOrchestration-e2637482b066.json
