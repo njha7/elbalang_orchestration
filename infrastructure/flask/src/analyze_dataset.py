@@ -4,8 +4,8 @@ import sys
 import io
 import collections as c
 import itertools as it
-import elbalang.elbalang as interpret
-# from .elbalang import elbalang
+import elbalang.elbalang.elbalang as interpret
+# from .elbalang import elbalang as interpret
 import time
 
 def get_data_as_list(file_ptr, delim=None):

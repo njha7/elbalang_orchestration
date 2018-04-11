@@ -1,4 +1,4 @@
-# elbalang_orchestration
+# Elbalang Orchestration
 Experiment data processing orchestration
 
 This is a RESTful API to handle the processing of logs from an Elba experiment.
