@@ -9,14 +9,15 @@ input_bucket = storage_client.get_bucket(os.environ['INPUT_BUCKET'])
 output_bucket = storage_client.get_bucket(os.environ['OUTPUT_BUCKET'])
 
 def download_log(object_path):
-  print(object_path)
   containerFP = object_path.decode().split('/')
   localFP = containerFP[len(containerFP) - 1]
   blob = input_bucket.blob(object_path)
   blob.download_to_filename(localFP)
   return './' + localFP
 
-# def upload_result(file):
+def upload_result(file):
+    blob = output_bucket.blob(destination_blob_name)
+    blob.upload_from_filename(source_file_name)
 
 
 app = Flask(__name__)
@@ -35,6 +36,7 @@ def processLog():
     if(toReturn != None):
       os.remove(experiment_data)
       # return toReturn
+      
       return 'Success', 200
     else:
       return 'Error', 500
