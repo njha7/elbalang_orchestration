@@ -15,8 +15,8 @@ def download_log(object_path):
   blob.download_to_filename(localFP)
   return './' + localFP
 
-def upload_result(file):
-    blob = output_bucket.blob(destination_blob_name)
+def upload_result(source_file_name, bucket_path):
+    blob = output_bucket.blob(bucket_path)
     blob.upload_from_filename(source_file_name)
 
 
@@ -34,9 +34,12 @@ def processLog():
     experiment_data = download_log(request.data)
     toReturn = analyze_dataset.analyze_one_file(experiment_data)
     if(toReturn != None):
+      results = open(experiment_data, 'w')
+      results.write(str(toReturn))
+      results.close()
+      upload_result(experiment_data, request.data)
       os.remove(experiment_data)
       # return toReturn
-      
       return 'Success', 200
     else:
       return 'Error', 500

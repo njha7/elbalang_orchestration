@@ -5,8 +5,9 @@ import io
 import collections as c
 import itertools as it
 import elbalang.elbalang.elbalang as interpret
-# from .elbalang import elbalang as interpret
+# from .elbalang import elbalang
 import time
+import traceback
 
 def get_data_as_list(file_ptr, delim=None):
     data_list = []
@@ -25,13 +26,14 @@ def get_data_as_list(file_ptr, delim=None):
 def _analyze_experiment(f):
     start = time.time()
     row_list = get_data_as_list(f)
-    analyze_result = interpret.elbalang.elbalang_run(row_list)
-    # analyze_result = interpret.elbalang_run(row_list)
+    # analyze_result = interpret.elbalang.elbalang_run(row_list)
+    analyze_result = interpret.elbalang_run(row_list)
     end = time.time()
     analyze_result.append('time')
     analyze_result.append(round(end-start,2))
     analyze_result.append('total_len')
     analyze_result.append(len(row_list))
+    f.close()
     return analyze_result
 
 
@@ -99,7 +101,7 @@ def analyze_one_file(file_path):
         
         analyze_result = _proc_file(file_path)
     except Exception as e:
-        print(str(e), file_path)
+        print(traceback.format_exception(None, e, e.__traceback__), file=sys.stderr, flush=True)
         return None
     else:
         result = []
