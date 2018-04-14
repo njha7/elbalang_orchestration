@@ -1,0 +1,15 @@
+{
+  "name": "elba-cloud-func",
+  "version": "1.0.0",
+  "description": "An anonymous function to generate post requests in response to new experiment data uploads.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Neel Jha",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "request": "^2.85.0"
+  }
+}

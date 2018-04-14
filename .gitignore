@@ -8,3 +8,5 @@ infrastructure/flask/src/env
 infrastructure/flask/docker-commands.txt
 infrastructure/flask/src/elbalang
 infrastructure/flask/src/ElbaOrchestration-e2637482b066.json
+/infrastructure/cloud_functions/node_modules/*
+/infrastructure/cloud_functions/.env

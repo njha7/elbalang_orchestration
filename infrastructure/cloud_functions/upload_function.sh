@@ -1,0 +1,1 @@
+gcloud beta functions deploy postLog --trigger-resource elba-experiments --trigger-event google.storage.object.finalize --stage-bucket elba-project
