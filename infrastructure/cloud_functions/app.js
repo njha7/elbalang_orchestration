@@ -9,7 +9,7 @@ exports.postLog = (event, callback) => {
   console.log(file.name)
   request.post({
     url: process.env.ELBA_API_ENDPOINT,
-    form: file.name,
+    form: { data: file.name },
   },
   (err, httpReponse, body) => {
     console.log(err, body);
