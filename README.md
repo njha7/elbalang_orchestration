@@ -20,6 +20,7 @@ This is a pipline to handle the processing of logs from an Elba experiment.
 3. Build the Elba-api container and upload to Google Container Registry:  
     * Unzip the log-file-analyzer to `infrastructure/flask/src/elbalang`
     * [Make a service account for Cloud Storage](https://cloud.google.com/storage/docs/access-control/using-iam-permissions) and download the credentials JSON to `infrastructure/flask/src` (creds.json)
+      * This account will need admin access to Cloud Storage
     * Make the following modifications to the Dockerfile:  
       * Change `INPUT_BUCKET` value to `[INPUT_BUCKET]`
       * Change `INPUT_BUCKET` value to `[INPUT_BUCKET]`
