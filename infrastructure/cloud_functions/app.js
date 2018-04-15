@@ -12,6 +12,11 @@ exports.postLog = (event, callback) => {
     form: { data: file.name },
   },
   (err, httpReponse, body) => {
-    console.log(err, body);
+    if (err) {
+      console.log(httpReponse, body);
+    } else {
+      console.log(err, body);
+    }
+    callback();
   });
 };
